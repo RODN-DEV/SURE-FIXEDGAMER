@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOOTBALL SIMPLE GAMES</title>
+    <!-- Load Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Load Tailwind CSS via CDN - this is crucial for the styling to work -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Your custom styles -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Configure Tailwind to use the Inter font globally */
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-200">
+    <div class="app-container flex flex-col">
+        <!-- Header -->
+        <header class="bg-slate-900 text-white p-4 sticky top-0 z-40 flex items-center justify-between shadow-lg border-b border-slate-800">
+            <button id="menu-toggle" class="text-2xl focus:outline-none hover:text-gray-300 transition">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 id="header-title" class="text-lg font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">FOOTBALL SIMPLE GAMES</h1>
+            <div class="w-8"></div> <!-- Placeholder for balanced layout -->
+        </header>
+
+        <!-- Main Content Area -->
+        <main id="content" class="flex-1 overflow-y-auto"></main>
+
+        <!-- Navigation Drawer -->
+        <div id="drawer-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"></div>
+        
+        <!-- Drawer Content -->
+        <div id="drawer" class="fixed top-0 left-0 h-full w-64 bg-white z-50 shadow-2xl transform drawer-closed transition-transform duration-300 overflow-y-auto">
+            <div class="p-6">
+                <!-- Drawer Header -->
+                <div class="border-b pb-4 mb-4">
+                    <h2 class="text-xl font-bold text-slate-800">Menu</h2>
+                    <p class="text-xs text-gray-500">Navigation</p>
+                </div>
+                
+                <!-- Navigation Links List - Populated by JavaScript -->
+                <ul id="drawer-nav-list" class="space-y-3">
+                    <!-- Nav items will be injected here by script.js -->
+                </ul>
+
+                <!-- Footer/Contact Info (Moved from script.js template to static HTML) -->
+                <div class="mt-8 pt-4 border-t border-gray-200">
+                    <div class="text-xs text-gray-500 font-semibold mb-2 uppercase">Need Help?</div>
+                    
+                    <!-- WhatsApp Link -->
+                    <a href="https://wa.me/11234567890" target="_blank" class="flex items-center gap-3 p-3 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-200">
+                        <div class="text-xl text-green-600">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-green-600 font-bold uppercase tracking-wider">WhatsApp</div>
+                            <div class="font-bold text-gray-800 text-xs">+1 123-456-7890</div>
+                        </div>
+                    </a>
+
+                    <!-- Email Link -->
+                    <a href="mailto:masterbetrealfixed@gmail.com" class="flex items-center gap-3 p-3 mt-2 bg-white rounded-lg hover:bg-gray-50 transition border border-gray-200">
+                        <div class="text-xl text-red-600">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-red-600 font-bold uppercase tracking-wider">Email</div>
+                            <div class="font-bold text-gray-800 text-xs">masterbetrealfixed@gmail.com</div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Password Modal (for VIP views) -->
+        <div id="password-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+            <div class="bg-white rounded-2xl p-6 w-80 mx-4 shadow-2xl">
+                <div class="text-center mb-4">
+                    <i class="fas fa-lock text-3xl text-yellow-500 mb-2"></i>
+                    <h3 class="text-xl font-bold text-gray-800">VIP Access Required</h3>
+                    <p class="text-gray-600 text-sm mt-1">Enter password to view this content</p>
+                </div>
+                <input type="password" id="password-input" class="w-full p-3 border border-gray-300 rounded-lg mb-4 text-center font-bold" placeholder="Enter password">
+                <div class="flex gap-2">
+                    <button id="cancel-password" class="flex-1 py-3 bg-gray-200 text-gray-700 rounded-lg font-bold">Cancel</button>
+                    <button id="submit-password" class="flex-1 py-3 bg-yellow-500 text-white rounded-lg font-bold">Submit</button>
+                </div>
+                <p id="password-error" class="text-red-500 text-sm mt-3 text-center hidden">Incorrect password. Try again.</p>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- SCRIPT LOADING ORDER IS CRITICAL FOR ORGANIZATION: -->
+    <!-- 1. Data must be defined first -->
+    <script src="data.js"></script>
+    <!-- 2. View/Rendering functions must be defined next (they need the data) -->
+    <script src="views.js"></script>
+    <!-- 3. Logic/Router must be last (it needs data and views) -->
+    <script src="script.js"></script>
+</body>
+</html>
+
